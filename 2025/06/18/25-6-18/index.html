@@ -28,7 +28,7 @@
 <meta property="og:description" content="前言最近在学习深蓝学院的汪博讲的《机器人学中的数值优化》，本文用来记录与总结。  第一章 无约束优化问题​        无约束优化问题的定义为：  \min_{x \in \mathbb{R}^n} f(x)​        其中，x 属于 n 维实数空间的变量。关于无约束的优化问题，课程中主要介绍了几种常见数值优化方法。在介绍之前，汪博对凸函数 的性质花了很长时间介绍，本文略过。本文对一些求导">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-18T11:58:53.000Z">
-<meta property="article:modified_time" content="2025-06-18T13:46:15.159Z">
+<meta property="article:modified_time" content="2025-06-18T14:12:24.594Z">
 <meta property="article:author" content="ZihChen7">
 <meta property="article:tag" content="optimization">
 <meta property="article:tag" content="motion-planning">
@@ -78,7 +78,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -180,7 +184,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-06-18 19:58:53 / 修改时间：21:46:15" itemprop="dateCreated datePublished" datetime="2025-06-18T19:58:53+08:00">2025-06-18</time>
+              <time title="创建时间：2025-06-18 19:58:53 / 修改时间：22:12:24" itemprop="dateCreated datePublished" datetime="2025-06-18T19:58:53+08:00">2025-06-18</time>
             </span>
 
           
@@ -256,8 +260,7 @@ f(x_k) - f(x_k + \alpha d_k) \geq -c \cdot \alpha \nabla f(x_k)^T d_k</script><p
 <script type="math/tex; mode=display">
 f(x_k + \alpha d_k) \approx f(x_k) + \alpha \nabla f(x_k)^T d_k \\
 f(x_k) - f(x_k + \alpha d_k) \approx -\alpha \nabla f(x_k)^T d_k - o(\alpha^2)</script><p>​        总的来说就是  <strong>实际下降量 ≥ 预期下降的缩小值</strong></p>
-<p>！未完待续</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. https://zhuanlan.zhihu.com/p/670856639</span><br></pre></td></tr></table></figure>
+<h1 id="！未完待续"><a href="#！未完待续" class="headerlink" title="！未完待续"></a>！未完待续</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. https://zhuanlan.zhihu.com/p/670856639</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -339,7 +342,7 @@ f(x_k) - f(x_k + \alpha d_k) \approx -\alpha \nabla f(x_k)^T d_k - o(\alpha^2)</
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%97%A0%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">第一章 无约束优化问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%90%9C%E7%B4%A2"><span class="nav-number">2.2.</span> <span class="nav-text">线搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B2%BE%E7%A1%AE%E7%BA%BF%E6%90%9C%E7%B4%A2"><span class="nav-number">2.2.1.</span> <span class="nav-text">精确线搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arjimo%E5%87%86%E5%88%99"><span class="nav-number">2.2.2.</span> <span class="nav-text">Arjimo准则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%97%A0%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">第一章 无约束优化问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%90%9C%E7%B4%A2"><span class="nav-number">2.2.</span> <span class="nav-text">线搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B2%BE%E7%A1%AE%E7%BA%BF%E6%90%9C%E7%B4%A2"><span class="nav-number">2.2.1.</span> <span class="nav-text">精确线搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arjimo%E5%87%86%E5%88%99"><span class="nav-number">2.2.2.</span> <span class="nav-text">Arjimo准则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EF%BC%81%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD"><span class="nav-number">3.</span> <span class="nav-text">！未完待续</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -447,6 +450,61 @@ f(x_k) - f(x_k + \alpha d_k) \approx -\alpha \nabla f(x_k)^T d_k - o(\alpha^2)</
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
