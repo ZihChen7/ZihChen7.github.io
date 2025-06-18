@@ -193,55 +193,68 @@
       
           <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在学习<strong>深蓝学院</strong>的汪博讲的《机器人学中的数值优化》，本文用来记录与总结。</p>
 <hr>
-<h1 id="第一章-无约束优化问题"><a href="#第一章-无约束优化问题" class="headerlink" title="第一章 无约束优化问题"></a>第一章 无约束优化问题</h1><p>​		无约束优化问题的定义为：<br>$$<br>\min_{x \in \mathbb{R}^n} f(x)<br>$$<br>​		其中，<em>x</em> 属于 <em>n</em> 维实数空间的变量。关于无约束的优化问题，课程中主要介绍了几种常见数值优化方法。在介绍之前，汪博对<strong>凸函数</strong> 的性质花了很长时间介绍，本文略过。本文对一些求导概念性属于进行介绍。</p>
+<h1 id="第一章-无约束优化问题"><a href="#第一章-无约束优化问题" class="headerlink" title="第一章 无约束优化问题"></a>第一章 无约束优化问题</h1><p>​        无约束优化问题的定义为：</p>
+<script type="math/tex; mode=display">
+\min_{x \in \mathbb{R}^n} f(x)</script><p>​        其中，<em>x</em> 属于 <em>n</em> 维实数空间的变量。关于无约束的优化问题，课程中主要介绍了几种常见数值优化方法。在介绍之前，汪博对<strong>凸函数</strong> 的性质花了很长时间介绍，本文略过。本文对一些求导概念性属于进行介绍。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">名称</th>
-<th align="center">符号</th>
-<th align="center">维度</th>
-<th align="center"><em>X</em> 维度</th>
-<th align="center"><em>Y</em> 维度</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">维度</th>
+<th style="text-align:center"><em>X</em> 维度</th>
+<th style="text-align:center"><em>Y</em> 维度</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">导数</td>
-<td align="center">f’(x)</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">1</td>
+<tbody>
+<tr>
+<td style="text-align:center">导数</td>
+<td style="text-align:center">f’(x)</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
 </tr>
 <tr>
-<td align="center">梯度</td>
-<td align="center">▽f(x)</td>
-<td align="center">n × 1</td>
-<td align="center">n</td>
-<td align="center">1</td>
+<td style="text-align:center">梯度</td>
+<td style="text-align:center">▽f(x)</td>
+<td style="text-align:center">n × 1</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">1</td>
 </tr>
 <tr>
-<td align="center">海森</td>
-<td align="center">Hessian</td>
-<td align="center">n × n</td>
-<td align="center">n</td>
-<td align="center">1</td>
+<td style="text-align:center">海森</td>
+<td style="text-align:center">Hessian</td>
+<td style="text-align:center">n × n</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">1</td>
 </tr>
 <tr>
-<td align="center">雅可比</td>
-<td align="center">Jacobian</td>
-<td align="center">m × n</td>
-<td align="center">n</td>
-<td align="center">m</td>
+<td style="text-align:center">雅可比</td>
+<td style="text-align:center">Jacobian</td>
+<td style="text-align:center">m × n</td>
+<td style="text-align:center">n</td>
+<td style="text-align:center">m</td>
 </tr>
-</tbody></table>
-<p>​		其中，梯度和海森分别是多输入单输出函数的一阶和二阶导数。</p>
-<h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2><p>​		梯度下降法顾名思义，利用的是梯度信息。具体的迭代表达式为：<br>$$<br>x_{k+1} &#x3D; x_k - \alpha \nabla f(x_k)<br>$$<br>​		其中，<em>α</em> 为步长。</p>
-<p>​		为什么需要步长这一概念？-▽f(x)是搜索的方向，如果走多了，会出现“曲折、振荡”的现象。<strong>线搜索</strong> 专门用于计算步长 <em>α</em> ，避免手动设定固定步长导致的收敛失败。</p>
-<h2 id="线搜索"><a href="#线搜索" class="headerlink" title="线搜索"></a>线搜索</h2><h3 id="精确线搜索"><a href="#精确线搜索" class="headerlink" title="精确线搜索"></a>精确线搜索</h3><p>​		假设第 <em>k</em> 步的最优步长为 $ α_k $，那么则构建出子优化问题：<br>$$<br>\alpha_k^* &#x3D; \arg\min_{\alpha_k} f \left( \boldsymbol{x}_k + \alpha_k , \boldsymbol{d}_k \right) \<br>d_k &#x3D; -\nabla f(x_k)<br>$$<br>​		但是此方法复杂度太高。</p>
-<h3 id="Arjimo准则"><a href="#Arjimo准则" class="headerlink" title="Arjimo准则"></a>Arjimo准则</h3><p>$$<br>f(x_k) - f(x_k + \alpha d_k) \geq -c \cdot \alpha \nabla f(x_k)^T d_k<br>$$</p>
-<p>​		一般 <em>c</em> 取(0,1)。公式咋得来的？请看：<br>$$<br>f(x_k + \alpha d_k) \approx f(x_k) + \alpha \nabla f(x_k)^T d_k \<br>f(x_k) - f(x_k + \alpha d_k) \approx -\alpha \nabla f(x_k)^T d_k - o(\alpha^2)<br>$$<br>​		总的来说就是  <strong>实际下降量 ≥ 预期下降的缩小值</strong></p>
+</tbody>
+</table>
+</div>
+<p>​        其中，梯度和海森分别是多输入单输出函数的一阶和二阶导数。</p>
+<h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2><p>​        梯度下降法顾名思义，利用的是梯度信息。具体的迭代表达式为：</p>
+<script type="math/tex; mode=display">
+x_{k+1} = x_k - \alpha \nabla f(x_k)</script><p>​        其中，<em>α</em> 为步长。</p>
+<p>​        为什么需要步长这一概念？-▽f(x)是搜索的方向，如果走多了，会出现“曲折、振荡”的现象。<strong>线搜索</strong> 专门用于计算步长 <em>α</em> ，避免手动设定固定步长导致的收敛失败。</p>
+<h2 id="线搜索"><a href="#线搜索" class="headerlink" title="线搜索"></a>线搜索</h2><h3 id="精确线搜索"><a href="#精确线搜索" class="headerlink" title="精确线搜索"></a>精确线搜索</h3><p>​        假设第 <em>k</em> 步的最优步长为 $ α_k $，那么则构建出子优化问题：</p>
+<script type="math/tex; mode=display">
+\alpha_k^* = \arg\min_{\alpha_k} f \left( \boldsymbol{x}_k + \alpha_k \, \boldsymbol{d}_k \right) \\
+d_k = -\nabla f(x_k)</script><p>​        但是此方法复杂度太高。</p>
+<h3 id="Arjimo准则"><a href="#Arjimo准则" class="headerlink" title="Arjimo准则"></a>Arjimo准则</h3><script type="math/tex; mode=display">
+f(x_k) - f(x_k + \alpha d_k) \geq -c \cdot \alpha \nabla f(x_k)^T d_k</script><p>​        一般 <em>c</em> 取(0,1)。公式咋得来的？请看：</p>
+<script type="math/tex; mode=display">
+f(x_k + \alpha d_k) \approx f(x_k) + \alpha \nabla f(x_k)^T d_k \\
+f(x_k) - f(x_k + \alpha d_k) \approx -\alpha \nabla f(x_k)^T d_k - o(\alpha^2)</script><p>​        总的来说就是  <strong>实际下降量 ≥ 预期下降的缩小值</strong></p>
 <p>！未完待续</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. https://zhuanlan.zhihu.com/p/670856639</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -301,16 +314,12 @@
       
           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
