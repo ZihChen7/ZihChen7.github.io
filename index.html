@@ -187,7 +187,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-06-20 21:07:47" itemprop="dateModified" datetime="2025-06-20T21:07:47+08:00">2025-06-20</time>
+                <time title="修改时间：2025-06-20 22:31:47" itemprop="dateModified" datetime="2025-06-20T22:31:47+08:00">2025-06-20</time>
               </span>
 
           
@@ -286,7 +286,28 @@ f(x_k) - f(x_k + \alpha d_k) \approx -\alpha \nabla f(x_k)^T d_k - o(\alpha^2)</
 </li>
 </ul>
 <hr>
-<h2 id="牛顿法"><a href="#牛顿法" class="headerlink" title="牛顿法"></a>牛顿法</h2><h1 id="！未完待续"><a href="#！未完待续" class="headerlink" title="！未完待续"></a>！未完待续</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. https://zhuanlan.zhihu.com/p/670856639</span><br></pre></td></tr></table></figure>
+<h2 id="牛顿法"><a href="#牛顿法" class="headerlink" title="牛顿法"></a>牛顿法</h2><p>​        梯度下降法是使用一阶梯度信息进行更新的，牛顿法则用到了<strong>二阶的Hessian矩阵</strong>。怎么得来的呢？首先，将f(x)进泰勒展开到二次项。</p>
+<script type="math/tex; mode=display">
+f(x) \approx f(x_k) + \nabla f(x_k)^T (x -x_k) + \frac{1}{2} (x - x_k)^T \nabla^2 f(x_k) (x - x_k)</script><p>​        求极值，即求f’(x) = 0 （因为默认是光滑凸函数），对上面公式求导得到</p>
+<script type="math/tex; mode=display">
+\nabla f(x_k) + \nabla^2 f(x_k) (x - x_k) = 0 \\
+\mathbf x_{k+1} = x_k - [\nabla^2 f(x_k)]^{-1} \nabla f(x_k)</script><p>​        这就得到了递推公式！ ，一般称x_k后面的为牛顿步。 牛顿法相对于梯度下降法有更快的收敛速度，但是稳定性较差。因为需要求解Hessian的逆，所以呀需要 Hessian <strong>非奇异且正定</strong>（非奇异—-&gt;求逆 ， 正定—-&gt;牛顿步为下降方向），而且这一步很耗时。所以出现了一些解决方案：</p>
+<ol>
+<li><p>使用修正矩阵M 去近似 Hessian</p>
+<script type="math/tex; mode=display">
+M = \nabla^2 f(x) + \lambda I, \quad \epsilon = \min\left(1, \|\nabla f(x)\|, \ldots\right) / 10</script></li>
+<li><p>引入线性方程组，求解d代替求逆</p>
+</li>
+</ol>
+<script type="math/tex; mode=display">
+\nabla^2 f(x_k) d = -\nabla f(x_k)</script><pre><code>       1）若 **Hessian 矩阵半正定 **， 使用**Cholesky 分解**
+</code></pre><script type="math/tex; mode=display">
+\nabla^2 f(x_k) = LL^T</script><p>​                  其中 L 是下三角矩阵。         </p>
+<p>​             2）若<strong>Hessian 矩阵不定</strong>，使用<strong>Bunch-Kaufman 分解</strong></p>
+<script type="math/tex; mode=display">
+\nabla^2 f(x_k) = LDL^T</script><p>​                  其中 D 是 <strong>块对角矩阵</strong> （稀疏矩阵）。可以很容易地去修改这些小块矩阵的特征值，把他们改成正数。</p>
+<h2 id="拟牛顿法"><a href="#拟牛顿法" class="headerlink" title="拟牛顿法"></a>拟牛顿法</h2><p>​        总的来说，牛顿法还是存在不小的问题的，其一，不保证一定是下降方向，其二，二阶Hessian求解还是比较难的，所以出现了拟牛顿法，<strong>核心思想</strong>是使用一阶梯度信息去近似二阶信息。同样是求解<strong>M</strong>矩阵近似Hessian，但保证其轻量化不满秩。</p>
+<h1 id="！未完待续"><a href="#！未完待续" class="headerlink" title="！未完待续"></a>！未完待续</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. https://zhuanlan.zhihu.com/p/670856639</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -320,7 +341,7 @@ f(x_k) - f(x_k + \alpha d_k) \approx -\alpha \nabla f(x_k)^T d_k - o(\alpha^2)</
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/06/18/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+            <a href="/2025/06/18/hello-world/" class="post-title-link" itemprop="url">Hello 超超</a>
         </h2>
 
         <div class="post-meta">
@@ -332,6 +353,13 @@ f(x_k) - f(x_k + \alpha d_k) \approx -\alpha \nabla f(x_k)^T d_k - o(\alpha^2)</
 
               <time title="创建时间：2025-06-18 15:17:03" itemprop="dateCreated datePublished" datetime="2025-06-18T15:17:03+08:00">2025-06-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-06-20 22:28:28" itemprop="dateModified" datetime="2025-06-20T22:28:28+08:00">2025-06-20</time>
+              </span>
 
           
 
@@ -344,8 +372,7 @@ f(x_k) - f(x_k + \alpha d_k) \approx -\alpha \nabla f(x_k)^T d_k - o(\alpha^2)</
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+          <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
