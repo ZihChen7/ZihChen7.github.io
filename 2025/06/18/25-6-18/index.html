@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"zihchen7.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"max"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="前言最近在学习深蓝学院的汪博讲的《机器人学中的数值优化》，本文用来记录与总结。  第一章 无约束优化问题​        无约束优化问题的定义为：  \min_{x \in \mathbb{R}^n} f(x)​        其中，x 属于 n 维实数空间的变量。关于无约束的优化问题，课程中主要介绍了几种常见数值优化方法。在介绍之前，汪博对凸函数 的性质花了很长时间介绍，本文略过。本文对一些求导">
+  <meta name="description" content="前言最近在学习深蓝学院的汪博讲的《机器人学中的数值优化》，本文用来记录与总结。在课程第一章汪博对凸函数 的性质花了很长时间介绍，本文略过。 水平有限，如有错误之处，敬请指正！  第一章 无约束优化问题​        无约束优化问题的定义为：  \min_{x \in \mathbb{R}^n} f(x)​        其中，x 属于 n 维实数空间的变量。关于无约束的优化问题，课程中主要介绍了">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Optimization in Robot">
 <meta property="og:url" content="https://zihchen7.github.io/2025/06/18/25-6-18/index.html">
 <meta property="og:site_name" content="A Blog">
-<meta property="og:description" content="前言最近在学习深蓝学院的汪博讲的《机器人学中的数值优化》，本文用来记录与总结。  第一章 无约束优化问题​        无约束优化问题的定义为：  \min_{x \in \mathbb{R}^n} f(x)​        其中，x 属于 n 维实数空间的变量。关于无约束的优化问题，课程中主要介绍了几种常见数值优化方法。在介绍之前，汪博对凸函数 的性质花了很长时间介绍，本文略过。本文对一些求导">
+<meta property="og:description" content="前言最近在学习深蓝学院的汪博讲的《机器人学中的数值优化》，本文用来记录与总结。在课程第一章汪博对凸函数 的性质花了很长时间介绍，本文略过。 水平有限，如有错误之处，敬请指正！  第一章 无约束优化问题​        无约束优化问题的定义为：  \min_{x \in \mathbb{R}^n} f(x)​        其中，x 属于 n 维实数空间的变量。关于无约束的优化问题，课程中主要介绍了">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-18T11:58:53.000Z">
-<meta property="article:modified_time" content="2025-06-18T14:12:24.594Z">
+<meta property="article:modified_time" content="2025-06-20T11:01:50.492Z">
 <meta property="article:author" content="ZihChen7">
 <meta property="article:tag" content="optimization">
 <meta property="article:tag" content="motion-planning">
@@ -165,7 +165,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/web-app-manifest-192x192.png">
       <meta itemprop="name" content="ZihChen7">
-      <meta itemprop="description" content="一个小学水平的机器人爱好者。">
+      <meta itemprop="description" content="一个小学水平的机器人爱好者。  email: ZihChen7@163.com ">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -182,10 +182,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-06-18 19:58:53 / 修改时间：22:12:24" itemprop="dateCreated datePublished" datetime="2025-06-18T19:58:53+08:00">2025-06-18</time>
+              <time title="创建时间：2025-06-18 19:58:53" itemprop="dateCreated datePublished" datetime="2025-06-18T19:58:53+08:00">2025-06-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-06-20 19:01:50" itemprop="dateModified" datetime="2025-06-20T19:01:50+08:00">2025-06-20</time>
+              </span>
 
           
 
@@ -198,11 +204,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在学习<strong>深蓝学院</strong>的汪博讲的《机器人学中的数值优化》，本文用来记录与总结。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在学习<strong>深蓝学院</strong>的汪博讲的《机器人学中的数值优化》，本文用来记录与总结。在课程第一章汪博对<strong>凸函数</strong> 的性质花了很长时间介绍，本文略过。 <strong>水平有限，如有错误之处，敬请指正！</strong></p>
 <hr>
 <h1 id="第一章-无约束优化问题"><a href="#第一章-无约束优化问题" class="headerlink" title="第一章 无约束优化问题"></a>第一章 无约束优化问题</h1><p>​        无约束优化问题的定义为：</p>
 <script type="math/tex; mode=display">
-\min_{x \in \mathbb{R}^n} f(x)</script><p>​        其中，<em>x</em> 属于 <em>n</em> 维实数空间的变量。关于无约束的优化问题，课程中主要介绍了几种常见数值优化方法。在介绍之前，汪博对<strong>凸函数</strong> 的性质花了很长时间介绍，本文略过。本文对一些求导概念性属于进行介绍。</p>
+\min_{x \in \mathbb{R}^n} f(x)</script><p>​        其中，<em>x</em> 属于 <em>n</em> 维实数空间的变量。关于无约束的优化问题，课程中主要介绍了几种常见数值优化方法。本文对一些求导概念性属于进行介绍。</p>
 <div class="table-container">
 <table>
 <thead>
@@ -247,20 +253,28 @@
 </table>
 </div>
 <p>​        其中，梯度和海森分别是多输入单输出函数的一阶和二阶导数。</p>
-<h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2><p>​        梯度下降法顾名思义，利用的是梯度信息。具体的迭代表达式为：</p>
+<h2 id="1-1-梯度下降法"><a href="#1-1-梯度下降法" class="headerlink" title="1.1 梯度下降法"></a>1.1 梯度下降法</h2><p>​        梯度下降法顾名思义，利用的是梯度信息。具体的迭代表达式为：</p>
 <script type="math/tex; mode=display">
 x_{k+1} = x_k - \alpha \nabla f(x_k)</script><p>​        其中，<em>α</em> 为步长。</p>
 <p>​        为什么需要步长这一概念？-▽f(x)是搜索的方向，如果走多了，会出现“曲折、振荡”的现象。<strong>线搜索</strong> 专门用于计算步长 <em>α</em> ，避免手动设定固定步长导致的收敛失败。</p>
-<h2 id="线搜索"><a href="#线搜索" class="headerlink" title="线搜索"></a>线搜索</h2><h3 id="精确线搜索"><a href="#精确线搜索" class="headerlink" title="精确线搜索"></a>精确线搜索</h3><p>​        假设第 <em>k</em> 步的最优步长为 $ α_k $，那么则构建出子优化问题：</p>
+<p>​        常见的确定步长方法有 ：</p>
+<ol>
+<li><em>α</em> = c ，为常数，这就特备容易引发上面说的 振荡。</li>
+<li><em>α</em> = c / k ，步长随着迭代次数增加逐渐降低</li>
+<li>精确线搜索</li>
+<li>非精确线搜索</li>
+</ol>
+<p>​        下面对几个线搜索相关的方法具体介绍 。</p>
+<h2 id="【0补充】-线搜索"><a href="#【0补充】-线搜索" class="headerlink" title="【0补充】 线搜索"></a>【0补充】 线搜索</h2><h3 id="0-1-精确线搜索"><a href="#0-1-精确线搜索" class="headerlink" title="0.1 精确线搜索"></a>0.1 精确线搜索</h3><p>​        假设第 <em>k</em> 步的最优步长为 $ α_k $，那么则构建出<strong>子优化</strong>问题：</p>
 <script type="math/tex; mode=display">
 \alpha_k^* = \arg\min_{\alpha_k} f \left( \boldsymbol{x}_k + \alpha_k \, \boldsymbol{d}_k \right) \\
 d_k = -\nabla f(x_k)</script><p>​        但是此方法复杂度太高。</p>
-<h3 id="Arjimo准则"><a href="#Arjimo准则" class="headerlink" title="Arjimo准则"></a>Arjimo准则</h3><script type="math/tex; mode=display">
+<h3 id="0-2-Arjimo准则"><a href="#0-2-Arjimo准则" class="headerlink" title="0.2 Arjimo准则"></a>0.2 Arjimo准则</h3><script type="math/tex; mode=display">
 f(x_k) - f(x_k + \alpha d_k) \geq -c \cdot \alpha \nabla f(x_k)^T d_k</script><p>​        一般 <em>c</em> 取(0,1)。公式咋得来的？请看：</p>
 <script type="math/tex; mode=display">
-f(x_k + \alpha d_k) \approx f(x_k) + \alpha \nabla f(x_k)^T d_k \\
-f(x_k) - f(x_k + \alpha d_k) \approx -\alpha \nabla f(x_k)^T d_k - o(\alpha^2)</script><p>​        总的来说就是  <strong>实际下降量 ≥ 预期下降的缩小值</strong></p>
-<h1 id="！未完待续"><a href="#！未完待续" class="headerlink" title="！未完待续"></a>！未完待续</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. https://zhuanlan.zhihu.com/p/670856639</span><br></pre></td></tr></table></figure>
+f(x_k + \alpha d_k) \approx f(x_k) + \alpha \nabla f(x_k)^T d_k + o(\alpha^2)\\
+f(x_k) - f(x_k + \alpha d_k) \approx -\alpha \nabla f(x_k)^T d_k - o(\alpha^2)</script><p>​        总的来说就是  <strong>实际下降量 ≥ 预期下降的缩小值</strong>。<strong>保证每次迭代的函数值下降是充分的，而非随意或微小的</strong>。所以，满足Arjimo准则的条件又叫做<strong>充分下降条件</strong>。</p>
+<h3 id="0-3-强Wolfe准则"><a href="#0-3-强Wolfe准则" class="headerlink" title="0.3 强Wolfe准则"></a>0.3 <strong>强Wolfe准则</strong></h3><h3 id="0-4-强Wolfe准则"><a href="#0-4-强Wolfe准则" class="headerlink" title="0.4 强Wolfe准则"></a>0.4 <strong>强Wolfe准则</strong></h3><h1 id="！未完待续"><a href="#！未完待续" class="headerlink" title="！未完待续"></a>！未完待续</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. https://zhuanlan.zhihu.com/p/670856639</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -342,7 +356,7 @@ f(x_k) - f(x_k + \alpha d_k) \approx -\alpha \nabla f(x_k)^T d_k - o(\alpha^2)</
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%97%A0%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">第一章 无约束优化问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%90%9C%E7%B4%A2"><span class="nav-number">2.2.</span> <span class="nav-text">线搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B2%BE%E7%A1%AE%E7%BA%BF%E6%90%9C%E7%B4%A2"><span class="nav-number">2.2.1.</span> <span class="nav-text">精确线搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arjimo%E5%87%86%E5%88%99"><span class="nav-number">2.2.2.</span> <span class="nav-text">Arjimo准则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EF%BC%81%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD"><span class="nav-number">3.</span> <span class="nav-text">！未完待续</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%97%A0%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">第一章 无约束优化问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 梯度下降法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%900%E8%A1%A5%E5%85%85%E3%80%91-%E7%BA%BF%E6%90%9C%E7%B4%A2"><span class="nav-number">2.2.</span> <span class="nav-text">【0补充】 线搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-1-%E7%B2%BE%E7%A1%AE%E7%BA%BF%E6%90%9C%E7%B4%A2"><span class="nav-number">2.2.1.</span> <span class="nav-text">0.1 精确线搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-2-Arjimo%E5%87%86%E5%88%99"><span class="nav-number">2.2.2.</span> <span class="nav-text">0.2 Arjimo准则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-3-%E5%BC%BAWolfe%E5%87%86%E5%88%99"><span class="nav-number">2.2.3.</span> <span class="nav-text">0.3 强Wolfe准则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-4-%E5%BC%BAWolfe%E5%87%86%E5%88%99"><span class="nav-number">2.2.4.</span> <span class="nav-text">0.4 强Wolfe准则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EF%BC%81%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD"><span class="nav-number">3.</span> <span class="nav-text">！未完待续</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -351,7 +365,7 @@ f(x_k) - f(x_k + \alpha d_k) \approx -\alpha \nabla f(x_k)^T d_k - o(\alpha^2)</
     <img class="site-author-image" itemprop="image" alt="ZihChen7"
       src="/images/web-app-manifest-192x192.png">
   <p class="site-author-name" itemprop="name">ZihChen7</p>
-  <div class="site-description" itemprop="description">一个小学水平的机器人爱好者。</div>
+  <div class="site-description" itemprop="description">一个小学水平的机器人爱好者。  email: ZihChen7@163.com </div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
