@@ -20,31 +20,36 @@
     var CONFIG = {"hostname":"zihchen7.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"max"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="一个爱好机器人的小学生。email: ZihChen7@163.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="A Blog">
-<meta property="og:url" content="https://zihchen7.github.io/index.html">
+  <meta name="description" content="前言​        记录Eigen库的使用方法。 头文件​        如Eigen官方教程中所示，头文件分为以下几种：  ​        其中，较为常用的分别为 123456789101112131415&#x2F;&#x2F; 基础矩阵运算#include &lt;Eigen&#x2F;Core&gt;       &#x2F;&#x2F; 必须包含#include &lt;Eigen&#x2F;Dense&gt;      &#x2F;&#x2F; 稠密矩阵扩展（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eigen Manual">
+<meta property="og:url" content="https://zihchen7.github.io/2025/06/23/25-6-23/index.html">
 <meta property="og:site_name" content="A Blog">
-<meta property="og:description" content="一个爱好机器人的小学生。email: ZihChen7@163.com">
+<meta property="og:description" content="前言​        记录Eigen库的使用方法。 头文件​        如Eigen官方教程中所示，头文件分为以下几种：  ​        其中，较为常用的分别为 123456789101112131415&#x2F;&#x2F; 基础矩阵运算#include &lt;Eigen&#x2F;Core&gt;       &#x2F;&#x2F; 必须包含#include &lt;Eigen&#x2F;Dense&gt;      &#x2F;&#x2F; 稠密矩阵扩展（">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/ZihChen7/picx-images-hosting/raw/master/20250623/Eigen.3yepptv29i.webp">
+<meta property="article:published_time" content="2025-06-23T12:56:37.000Z">
+<meta property="article:modified_time" content="2025-06-23T14:36:19.030Z">
 <meta property="article:author" content="ZihChen7">
-<meta property="article:tag" content="C++, Robot control and planning.">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Matrix">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/ZihChen7/picx-images-hosting/raw/master/20250623/Eigen.3yepptv29i.webp">
 
-<link rel="canonical" href="https://zihchen7.github.io/">
+<link rel="canonical" href="https://zihchen7.github.io/2025/06/23/25-6-23/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>A Blog</title>
+  <title>Eigen Manual | A Blog</title>
   
 
 
@@ -150,9 +155,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -168,10 +174,9 @@
       <meta itemprop="name" content="A Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/06/23/25-6-23/" class="post-title-link" itemprop="url">Eigen Manual</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Eigen Manual
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -195,7 +200,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​        记录Eigen库的使用方法。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​        记录Eigen库的使用方法。</p>
 <h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><p>​        如Eigen官方教程中所示，头文件分为以下几种：</p>
 <p><img src="https://github.com/ZihChen7/picx-images-hosting/raw/master/20250623/Eigen.3yepptv29i.webp" alt="Eigen"></p>
 <p>​        其中，较为常用的分别为</p>
@@ -326,353 +331,34 @@
 </ol>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> norm = mat.<span class="built_in">norm</span>()；</span><br></pre></td></tr></table></figure>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C++</a>
+              <a href="/tags/Matrix/" rel="tag"># Matrix</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zihchen7.github.io/2025/06/22/25-6-22/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/web-app-manifest-192x192.png">
-      <meta itemprop="name" content="ZihChen7">
-      <meta itemprop="description" content="一个爱好机器人的小学生。email: ZihChen7@163.com ">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="A Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/06/22/25-6-22/" class="post-title-link" itemprop="url">Optimization in Robot (Exercise 1)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-06-22 10:27:18" itemprop="dateCreated datePublished" datetime="2025-06-22T10:27:18+08:00">2025-06-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-06-23 21:05:24" itemprop="dateModified" datetime="2025-06-23T21:05:24+08:00">2025-06-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>课程的第一个作业是输入起始点和终止点，通过求解优化问题来生成路径平滑。与常规的搜索算法，采样算法的原理完全不同，却也能得到一条比较好的路径。</p>
-<hr>
-<h1 id="主节点"><a href="#主节点" class="headerlink" title="主节点"></a>主节点</h1><p>​        主要用来初始化节点和接收话题消息。当存储 ‘/move_base_simple/goal’ 消息的容器满2个时，则进入处理：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (startGoal.<span class="built_in">size</span>() == <span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// 设置点的数量</span></span><br><span class="line">		<span class="type">const</span> <span class="type">int</span> N = (startGoal.<span class="built_in">back</span>() - startGoal.<span class="built_in">front</span>()).<span class="built_in">norm</span>() / config.pieceLength;</span><br><span class="line">		<span class="comment">// 初始化存储内点的矩阵，不包括起点和终点</span></span><br><span class="line">		<span class="function">Eigen::Matrix2Xd <span class="title">innerPoints</span><span class="params">(<span class="number">2</span>, N - <span class="number">1</span>)</span></span>;</span><br><span class="line">		<span class="comment">// 根据线性插值填充内点</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N - <span class="number">1</span>; ++i)</span><br><span class="line"> 		&#123;</span><br><span class="line">			innerPoints.<span class="built_in">col</span>(i) = (startGoal.<span class="built_in">back</span>() - startGoal.<span class="built_in">front</span>()) * (i + <span class="number">1.0</span>) / N + startGoal.<span class="built_in">front</span>();</span><br><span class="line"> 		&#125;</span><br><span class="line">		<span class="comment">// 创建路径平滑器</span></span><br><span class="line">		path_smoother::PathSmoother pathSmoother;</span><br><span class="line">		<span class="comment">// 配置路径平滑器，输入起点、终点、内点数量、障碍物和惩罚权重</span></span><br><span class="line">		pathSmoother.<span class="built_in">setup</span>(startGoal.<span class="built_in">front</span>(), startGoal.<span class="built_in">back</span>(), N, config.circleObs, config.penaltyWeight);</span><br><span class="line">		<span class="comment">// 创建曲线</span></span><br><span class="line">		CubicCurve curve;</span><br><span class="line">		<span class="comment">// 使用路径平滑器优化曲线</span></span><br><span class="line">		<span class="keyword">if</span> (std::<span class="built_in">isinf</span>(pathSmoother.<span class="built_in">optimize</span>(curve, innerPoints, config.relCostTol)))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (curve.<span class="built_in">getPieceNum</span>() &gt; <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			visualizer.<span class="built_in">visualize</span>(curve);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="路径平滑器"><a href="#路径平滑器" class="headerlink" title="路径平滑器"></a>路径平滑器</h1><p>​        这个结构体是实现优化过程的部分，通过设置代价函数，并实现优化，结构如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PathSmoother</span></span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        cubic_spline::CubicSpline cubSpline;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> pieceN;</span><br><span class="line">        Eigen::Matrix3Xd diskObstacles;</span><br><span class="line">        <span class="type">double</span> penaltyWeight;</span><br><span class="line">        Eigen::Vector2d headP;</span><br><span class="line">        Eigen::Vector2d tailP;</span><br><span class="line">        Eigen::Matrix2Xd points;</span><br><span class="line">        Eigen::Matrix2Xd gradByPoints;</span><br><span class="line"></span><br><span class="line">        lbfgs::<span class="type">lbfgs_parameter_t</span> lbfgs_params;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="function"><span class="type">static</span> <span class="keyword">inline</span> <span class="type">double</span> <span class="title">costFunction</span><span class="params">(<span class="type">void</span> *ptr,</span></span></span><br><span class="line"><span class="params"><span class="function">                                          <span class="type">const</span> Eigen::VectorXd &amp;x,</span></span></span><br><span class="line"><span class="params"><span class="function">                                          Eigen::VectorXd &amp;g)</span>；</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span>:</span></span><br><span class="line"><span class="function">        inline bool setup(const Eigen::Vector2d &amp;initialP,</span></span><br><span class="line"><span class="function">                          const Eigen::Vector2d &amp;terminalP,</span></span><br><span class="line"><span class="function">                          const int &amp;pieceNum,</span></span><br><span class="line"><span class="function">                          const Eigen::Matrix3Xd &amp;diskObs,</span></span><br><span class="line"><span class="function">                          const double penaWeight)；</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">        inline double optimize(CubicCurve &amp;curve,</span></span><br><span class="line"><span class="function">                               const Eigen::Matrix2Xd &amp;iniInPs,</span></span><br><span class="line"><span class="function">                               const double &amp;relCostTol)；</span></span><br><span class="line"><span class="function">    &#125;;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="未完待续-😇"><a href="#未完待续-😇" class="headerlink" title="未完待续 😇"></a>未完待续 😇</h1>
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/06/22/25-6-22/" rel="prev" title="Optimization in Robot (Exercise 1)">
+      <i class="fa fa-chevron-left"></i> Optimization in Robot (Exercise 1)
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zihchen7.github.io/2025/06/18/25-6-18/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/web-app-manifest-192x192.png">
-      <meta itemprop="name" content="ZihChen7">
-      <meta itemprop="description" content="一个爱好机器人的小学生。email: ZihChen7@163.com ">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="A Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/06/18/25-6-18/" class="post-title-link" itemprop="url">Optimization in Robot (1)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-06-18 19:58:53" itemprop="dateCreated datePublished" datetime="2025-06-18T19:58:53+08:00">2025-06-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-06-22 10:30:46" itemprop="dateModified" datetime="2025-06-22T10:30:46+08:00">2025-06-22</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在学习<strong>深蓝学院</strong>的汪博讲的《机器人学中的数值优化》，本文用来记录与总结。在课程第一章汪博对<strong>凸函数</strong> 的性质花了很长时间介绍，本文略过。 <strong>水平有限，如有错误之处，敬请指正！</strong></p>
-<hr>
-<h1 id="第一章-无约束优化问题"><a href="#第一章-无约束优化问题" class="headerlink" title="第一章 无约束优化问题"></a>第一章 无约束优化问题</h1><p>​        无约束优化问题的定义为：</p>
-<script type="math/tex; mode=display">
-\min_{x \in \mathbb{R}^n} f(x)</script><p>​        其中，<em>x</em> 属于 <em>n</em> 维实数空间的变量。关于无约束的优化问题，课程中主要介绍了几种常见数值优化方法。本文对一些求导概念性属于进行介绍。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">符号</th>
-<th style="text-align:center">维度</th>
-<th style="text-align:center"><em>X</em> 维度</th>
-<th style="text-align:center"><em>Y</em> 维度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">导数</td>
-<td style="text-align:center">f’(x)</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">梯度</td>
-<td style="text-align:center">▽f(x)</td>
-<td style="text-align:center">n × 1</td>
-<td style="text-align:center">n</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">海森</td>
-<td style="text-align:center">Hessian</td>
-<td style="text-align:center">n × n</td>
-<td style="text-align:center">n</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">雅可比</td>
-<td style="text-align:center">Jacobian</td>
-<td style="text-align:center">m × n</td>
-<td style="text-align:center">n</td>
-<td style="text-align:center">m</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>​        其中，梯度和海森分别是多输入单输出函数的一阶和二阶导数。</p>
-<h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2><p>​        梯度下降法顾名思义，利用的是梯度信息。具体的迭代表达式为：</p>
-<script type="math/tex; mode=display">
-x_{k+1} = x_k - \alpha \nabla f(x_k)</script><p>​        其中，<em>α</em> 为步长。</p>
-<p>​        为什么需要步长这一概念？-▽f(x)是搜索的方向，如果走多了，会出现“曲折、振荡”的现象。<strong>线搜索</strong> 专门用于计算步长 <em>α</em> ，避免手动设定固定步长导致的收敛失败。</p>
-<p>​        常见的确定步长方法有 ：</p>
-<ol>
-<li><em>α</em> = c ，为常数，这就特备容易引发上面说的 振荡。</li>
-<li><em>α</em> = c / k ，步长随着迭代次数增加逐渐降低</li>
-<li>精确线搜索</li>
-<li>非精确线搜索</li>
-</ol>
-<p>​        下面对几个线搜索相关的方法具体介绍 。</p>
-<hr>
-<h2 id="【补充】-线搜索"><a href="#【补充】-线搜索" class="headerlink" title="【补充】 线搜索"></a>【补充】 线搜索</h2><h3 id="精确线搜索"><a href="#精确线搜索" class="headerlink" title="精确线搜索"></a>精确线搜索</h3><p>​        假设第 <em>k</em> 步的最优步长为 $ α_k $，那么则构建出<strong>子优化</strong>问题：</p>
-<script type="math/tex; mode=display">
-\alpha_k^* = \arg\min_{\alpha_k} f \left( \boldsymbol{x}_k + \alpha_k \, \boldsymbol{d}_k \right) \\
-d_k = -\nabla f(x_k)</script><p>​        但是此方法复杂度太高。</p>
-<h3 id="Armijo准则"><a href="#Armijo准则" class="headerlink" title="Armijo准则"></a>Armijo准则</h3><script type="math/tex; mode=display">
-f(x_k) - f(x_k + \alpha d_k) \geq -c \cdot \alpha \nabla f(x_k)^T d_k</script><p>​        一般 <em>c</em> 取(0,1)。公式咋得来的？请看：</p>
-<script type="math/tex; mode=display">
-f(x_k + \alpha d_k) \approx f(x_k) + \alpha \nabla f(x_k)^T d_k + o(\alpha^2)\\
-f(x_k) - f(x_k + \alpha d_k) \approx -\alpha \nabla f(x_k)^T d_k - o(\alpha^2)</script><p>​        总的来说就是  <strong>实际下降量 ≥ 预期下降的缩小值</strong>。<strong>保证每次迭代的函数值下降是充分的，而非随意或微小的</strong>。所以，满足Armijo准则的条件又叫做<strong>充分下降条件</strong>。</p>
-<h3 id="弱Wolfe准则"><a href="#弱Wolfe准则" class="headerlink" title="弱Wolfe准则"></a>弱Wolfe准则</h3><p>​        弱Wolfe准则满足2个条件，分别为上述的Armijo条件和曲率条件。曲率条件表达式为：</p>
-<script type="math/tex; mode=display">
-\nabla f (x_k + \alpha d_k)^\top d_k ≥ c_2 \nabla f(x_k)^\top d_k</script><p>​        如下图，公式的左半边是<em>Φ</em>(α)函数的导数，物理意义是说，曲率条件的物理意义是<em>Φ</em>(α)函数在α的斜率大于等于c2倍的<em>Φ</em>(0)的斜率。只限制方向导数的<strong>下界</strong> ，允许步长较大。</p>
-<p><img src="https://github.com/ZihChen7/picx-images-hosting/raw/master/20250620/weak_wolfe.lvzr4ld17.webp" alt="weak_wolfe" style="zoom:75%;" /></p>
-<h3 id="强Wolfe准则"><a href="#强Wolfe准则" class="headerlink" title="强Wolfe准则"></a><strong>强Wolfe准则</strong></h3><p>​        强Wolfe准则和弱Wolfe准则的区别在于前者曲率条件多了个绝对值，也就是</p>
-<script type="math/tex; mode=display">
-\|\nabla f(x + \alpha d)^T d_k\| \leq c_3 \|\nabla f(x)^T d_k\|</script><p><img src="https://github.com/ZihChen7/picx-images-hosting/raw/master/20250620/strong_wolfe.png.32i861soeb.webp" alt="strong_wolfe" style="zoom:80%;" /></p>
-<ul>
-<li><p>为什么<strong>弱Wolfe准则</strong> 和 <strong>强Wolfe准则</strong> 的曲率条件一个是<strong>≥</strong> 而一个是 <strong>≤</strong> ？</p>
-<p> 弱Wolfe 允许斜率过正， 而  强Wolfe准则 避免斜率过度正或过度负，从而防止步长过大（如跳过极小点）或过小（收敛缓慢）。</p>
-</li>
-</ul>
-<hr>
-<h2 id="牛顿法"><a href="#牛顿法" class="headerlink" title="牛顿法"></a>牛顿法</h2><p>​        梯度下降法是使用一阶梯度信息进行更新的，牛顿法则用到了<strong>二阶的Hessian矩阵</strong>。怎么得来的呢？首先，将f(x)进泰勒展开到二次项。</p>
-<script type="math/tex; mode=display">
-f(x) \approx f(x_k) + \nabla f(x_k)^T (x -x_k) + \frac{1}{2} (x - x_k)^T \nabla^2 f(x_k) (x - x_k)</script><p>​        求极值，即求f’(x) = 0 （因为默认是光滑凸函数），对上面公式求导得到</p>
-<script type="math/tex; mode=display">
-\nabla f(x_k) + \nabla^2 f(x_k) (x - x_k) = 0 \\
-\mathbf x_{k+1} = x_k - [\nabla^2 f(x_k)]^{-1} \nabla f(x_k)</script><p>​        这就得到了递推公式！ ，一般称x_k后面的为牛顿步。 牛顿法相对于梯度下降法有更快的收敛速度，但是稳定性较差。因为需要求解Hessian的逆，所以呀需要 Hessian <strong>非奇异且正定</strong>（非奇异—-&gt;求逆 ， 正定—-&gt;牛顿步为下降方向），而且这一步很耗时。所以出现了一些解决方案：</p>
-<ol>
-<li><p>使用修正矩阵M 去近似 Hessian</p>
-<script type="math/tex; mode=display">
-M = \nabla^2 f(x) + \lambda I, \quad \epsilon = \min\left(1, \|\nabla f(x)\|, \ldots\right) / 10</script></li>
-<li><p>引入线性方程组，求解d代替求逆</p>
-</li>
-</ol>
-<script type="math/tex; mode=display">
-\nabla^2 f(x_k) d = -\nabla f(x_k)</script><p>​             1）若 <strong>Hessian 矩阵半正定 </strong>， 使用<strong>Cholesky 分解</strong></p>
-<script type="math/tex; mode=display">
-\nabla^2 f(x_k) = LL^T</script><p>​                  其中 L 是下三角矩阵。         </p>
-<p>​             2）若<strong>Hessian 矩阵不定</strong>，使用<strong>Bunch-Kaufman 分解</strong></p>
-<script type="math/tex; mode=display">
-\nabla^2 f(x_k) = LDL^T</script><p>​                  其中 D 是 <strong>块对角矩阵</strong> （稀疏矩阵）。可以很容易地去修改这些小块矩阵的特征值，把他们改成正数。</p>
-<h2 id="拟牛顿法"><a href="#拟牛顿法" class="headerlink" title="拟牛顿法"></a>拟牛顿法</h2><h3 id="BFGS"><a href="#BFGS" class="headerlink" title="BFGS"></a>BFGS</h3><p>​        总的来说，牛顿法还是存在不小的问题的，其一，不保证一定是下降方向；其二，二阶Hessian求解还是比较难的，所以出现了拟牛顿法，<strong>核心思想</strong>是使用一阶梯度信息去近似二阶信息。同样是求解<strong>B</strong>矩阵近似Hessian 。</p>
-<p>​        对梯度▽f(x) 泰勒展开得到</p>
-<script type="math/tex; mode=display">
-\nabla f(x_k + p) = \nabla f(x_k) + \nabla^2 f(x_k) p + \mathcal{O}(\|p\|^2)</script><p>​        然后，由于x_k + p =x_k+1，带入得到 </p>
-<script type="math/tex; mode=display">
-\nabla f(x_{k+1}) - \nabla f(x_k) =  \nabla^2 f(x_k) (x_{k+1} - x_{k+1})</script><p>​        整理得到约束条件，一般叫做 <strong>牛顿条件</strong>：</p>
-<script type="math/tex; mode=display">
-\Delta g^{k}  = M^{k+1} \Delta x^{k}  （梯度变化）\\
-\Delta x^{k}  = B^{k+1} \Delta g^{k}  （变量变化）\\</script><p>​        <strong>M</strong>和<strong>B</strong>互为逆矩阵，一般用第二个<strong>B</strong> 矩阵的公式。公式里变量具体含义为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-B^{k+1} = \left[ \nabla^{2} f(x^{k}) \right]^{-1}, \Delta x^{k} = x^{k+1} - x^{k}, \Delta g^{k} = \nabla f(x^{k+1}) -  \nabla f(x^{k}) 
-
-\end{aligned}</script><p>​        那么接下来去求<strong>B</strong>。 核心思想是：尽量保留已有信息，同时满足<strong>牛顿条件</strong>。</p>
-<script type="math/tex; mode=display">
-\min_{B} \| H^{1/2}(B - B^k)H^{1/2} \|^2 \\
-\text{s.t.} \quad B = B^T, \quad \Delta x = B \Delta g</script><p>​        通过一系列复杂的计算（没看懂），最终得到BFGS算法的迭代公式，3 2 1 上公式！</p>
-<p><img src="https://github.com/ZihChen7/picx-images-hosting/raw/master/20250621/BFGS.8hgqpsdc7i.webp" alt="BFGS" style="zoom:67%;" /></p>
-<p>​        这是一个迭代更新的过程，每一轮迭代优化步都需要对<strong>B</strong>矩阵进行更新，从而用历史的一阶梯度信息，对二阶信息进行迭代估计。</p>
-<p>​        但这个方法的缺点越比较明显：</p>
-<ul>
-<li>存储和计算开销较大，去近似的Hessian矩阵，需要n × n 的空间，当变量维数很大，内存和计算代价高</li>
-<li>无法保证B^k+1 正定，不能保证目标函数下降，所以一般与<strong>线搜索</strong>连用</li>
-</ul>
-<h3 id="L-BFGS"><a href="#L-BFGS" class="headerlink" title="L-BFGS"></a>L-BFGS</h3><p>​        核心思路：使用有限个的历史梯度变化，近似Hessian ，直接上伪代码！</p>
-<p><img src="https://github.com/ZihChen7/picx-images-hosting/raw/master/20250621/L-BFGS.6f0y1sbwgi.webp" alt="L-BFGS"></p>
-<h2 id="共轭梯度法"><a href="#共轭梯度法" class="headerlink" title="共轭梯度法"></a>共轭梯度法</h2><p>​        共轭梯度法是专门用来求解线性方程的。共轭梯度法在每步迭代中选择一组 与A共轭的方向。主啵累了，放公式：</p>
-<p><img src="https://github.com/ZihChen7/picx-images-hosting/raw/master/20250621/Newton-CG.1ovp3dcnst.webp" alt="Newton-CG" style="zoom:67%;" /></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://zhuanlan.zhihu.com/p/670856639</span><br><span class="line">https://www.shenlanxueyuan.com/course/745</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zihchen7.github.io/2025/06/18/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/web-app-manifest-192x192.png">
-      <meta itemprop="name" content="ZihChen7">
-      <meta itemprop="description" content="一个爱好机器人的小学生。email: ZihChen7@163.com ">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="A Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/06/18/hello-world/" class="post-title-link" itemprop="url">Hello 超超</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-06-18 15:17:03" itemprop="dateCreated datePublished" datetime="2025-06-18T15:17:03+08:00">2025-06-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-06-20 22:33:19" itemprop="dateModified" datetime="2025-06-20T22:33:19+08:00">2025-06-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -725,6 +411,7 @@ B^{k+1} = \left[ \nabla^{2} f(x^{k}) \right]^{-1}, \Delta x^{k} = x^{k+1} - x^{k
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">静态初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.2.</span> <span class="nav-text">动态初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5%E8%B5%8B%E5%80%BC"><span class="nav-number">3.3.</span> <span class="nav-text">特殊矩阵赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%A0%E5%B0%84%E8%B5%8B%E5%80%BC"><span class="nav-number">3.4.</span> <span class="nav-text">映射赋值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9D%97%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">块操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E5%8F%96%E5%9D%97"><span class="nav-number">4.1.</span> <span class="nav-text">提取块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">特殊函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E7%BD%AE"><span class="nav-number">5.1.</span> <span class="nav-text">转置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B1%E8%BD%AD"><span class="nav-number">5.2.</span> <span class="nav-text">共轭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B1%E8%BD%AD%E8%BD%AC%E7%BD%AE"><span class="nav-number">5.3.</span> <span class="nav-text">共轭转置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%B9%E7%A7%AF"><span class="nav-number">5.4.</span> <span class="nav-text">点积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%AE%E7%A7%AF"><span class="nav-number">5.5.</span> <span class="nav-text">差积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E7%BA%A6%E6%93%8D%E4%BD%9C"><span class="nav-number">5.6.</span> <span class="nav-text">归约操作</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

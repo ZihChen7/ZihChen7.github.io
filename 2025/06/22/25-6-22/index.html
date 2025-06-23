@@ -28,7 +28,7 @@
 <meta property="og:description" content="前言课程的第一个作业是输入起始点和终止点，通过求解优化问题来生成路径平滑。与常规的搜索算法，采样算法的原理完全不同，却也能得到一条比较好的路径。  主节点​        主要用来初始化节点和接收话题消息。当存储 ‘&#x2F;move_base_simple&#x2F;goal’ 消息的容器满2个时，则进入处理： 12345678910111213141516171819202122232425262728if (">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-22T02:27:18.000Z">
-<meta property="article:modified_time" content="2025-06-22T06:11:48.611Z">
+<meta property="article:modified_time" content="2025-06-23T13:05:24.773Z">
 <meta property="article:author" content="ZihChen7">
 <meta property="article:tag" content="Optimization">
 <meta property="article:tag" content="Planning">
@@ -182,10 +182,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-06-22 10:27:18 / 修改时间：14:11:48" itemprop="dateCreated datePublished" datetime="2025-06-22T10:27:18+08:00">2025-06-22</time>
+              <time title="创建时间：2025-06-22 10:27:18" itemprop="dateCreated datePublished" datetime="2025-06-22T10:27:18+08:00">2025-06-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-06-23 21:05:24" itemprop="dateModified" datetime="2025-06-23T21:05:24+08:00">2025-06-23</time>
+              </span>
 
           
 
@@ -204,7 +210,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (startGoal.<span class="built_in">size</span>() == <span class="number">2</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// 设置点的数量</span></span><br><span class="line">		<span class="type">const</span> <span class="type">int</span> N = (startGoal.<span class="built_in">back</span>() - startGoal.<span class="built_in">front</span>()).<span class="built_in">norm</span>() / config.pieceLength;</span><br><span class="line">		<span class="comment">// 初始化存储内点的矩阵，不包括起点和终点</span></span><br><span class="line">		<span class="function">Eigen::Matrix2Xd <span class="title">innerPoints</span><span class="params">(<span class="number">2</span>, N - <span class="number">1</span>)</span></span>;</span><br><span class="line">		<span class="comment">// 根据线性插值填充内点</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N - <span class="number">1</span>; ++i)</span><br><span class="line"> 		&#123;</span><br><span class="line">			innerPoints.<span class="built_in">col</span>(i) = (startGoal.<span class="built_in">back</span>() - startGoal.<span class="built_in">front</span>()) * (i + <span class="number">1.0</span>) / N + startGoal.<span class="built_in">front</span>();</span><br><span class="line"> 		&#125;</span><br><span class="line">		<span class="comment">// 创建路径平滑器</span></span><br><span class="line">		path_smoother::PathSmoother pathSmoother;</span><br><span class="line">		<span class="comment">// 配置路径平滑器，输入起点、终点、内点数量、障碍物和惩罚权重</span></span><br><span class="line">		pathSmoother.<span class="built_in">setup</span>(startGoal.<span class="built_in">front</span>(), startGoal.<span class="built_in">back</span>(), N, config.circleObs, config.penaltyWeight);</span><br><span class="line">		<span class="comment">// 创建曲线</span></span><br><span class="line">		CubicCurve curve;</span><br><span class="line">		<span class="comment">// 使用路径平滑器优化曲线</span></span><br><span class="line">		<span class="keyword">if</span> (std::<span class="built_in">isinf</span>(pathSmoother.<span class="built_in">optimize</span>(curve, innerPoints, config.relCostTol)))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (curve.<span class="built_in">getPieceNum</span>() &gt; <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			visualizer.<span class="built_in">visualize</span>(curve);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="路径平滑器"><a href="#路径平滑器" class="headerlink" title="路径平滑器"></a>路径平滑器</h1><p>​        这个结构体是实现优化过程的部分，通过设置代价函数，并实现优化，结构如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PathSmoother</span></span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        cubic_spline::CubicSpline cubSpline;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> pieceN;</span><br><span class="line">        Eigen::Matrix3Xd diskObstacles;</span><br><span class="line">        <span class="type">double</span> penaltyWeight;</span><br><span class="line">        Eigen::Vector2d headP;</span><br><span class="line">        Eigen::Vector2d tailP;</span><br><span class="line">        Eigen::Matrix2Xd points;</span><br><span class="line">        Eigen::Matrix2Xd gradByPoints;</span><br><span class="line"></span><br><span class="line">        lbfgs::<span class="type">lbfgs_parameter_t</span> lbfgs_params;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="function"><span class="type">static</span> <span class="keyword">inline</span> <span class="type">double</span> <span class="title">costFunction</span><span class="params">(<span class="type">void</span> *ptr,</span></span></span><br><span class="line"><span class="params"><span class="function">                                          <span class="type">const</span> Eigen::VectorXd &amp;x,</span></span></span><br><span class="line"><span class="params"><span class="function">                                          Eigen::VectorXd &amp;g)</span>；</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span>:</span></span><br><span class="line"><span class="function">        inline bool setup(const Eigen::Vector2d &amp;initialP,</span></span><br><span class="line"><span class="function">                          const Eigen::Vector2d &amp;terminalP,</span></span><br><span class="line"><span class="function">                          const int &amp;pieceNum,</span></span><br><span class="line"><span class="function">                          const Eigen::Matrix3Xd &amp;diskObs,</span></span><br><span class="line"><span class="function">                          const double penaWeight)；</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">        inline double optimize(CubicCurve &amp;curve,</span></span><br><span class="line"><span class="function">                               const Eigen::Matrix2Xd &amp;iniInPs,</span></span><br><span class="line"><span class="function">                               const double &amp;relCostTol)；</span></span><br><span class="line"><span class="function">    &#125;;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h1 id="未完待续-😇"><a href="#未完待续-😇" class="headerlink" title="未完待续 😇"></a>未完待续 😇</h1>
     </div>
 
     
@@ -226,7 +232,10 @@
     <a href="/2025/06/18/25-6-18/" rel="prev" title="Optimization in Robot (1)">
       <i class="fa fa-chevron-left"></i> Optimization in Robot (1)
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2025/06/23/25-6-23/" rel="next" title="Eigen Manual">
+      Eigen Manual <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -285,7 +294,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E8%8A%82%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">主节点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E5%B9%B3%E6%BB%91%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">路径平滑器</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E8%8A%82%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">主节点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E5%B9%B3%E6%BB%91%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">路径平滑器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD-%F0%9F%98%87"><span class="nav-number">4.</span> <span class="nav-text">未完待续 😇</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -301,12 +310,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
