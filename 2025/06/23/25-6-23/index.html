@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.com/ZihChen7/picx-images-hosting/raw/master/20250623/Eigen.3yepptv29i.webp">
 <meta property="article:published_time" content="2025-06-23T12:56:37.000Z">
-<meta property="article:modified_time" content="2025-06-23T14:43:18.733Z">
+<meta property="article:modified_time" content="2025-06-24T02:50:59.432Z">
 <meta property="article:author" content="ZihChen7">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="Matrix">
@@ -184,10 +184,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-06-23 20:56:37 / 修改时间：22:43:18" itemprop="dateCreated datePublished" datetime="2025-06-23T20:56:37+08:00">2025-06-23</time>
+              <time title="创建时间：2025-06-23 20:56:37" itemprop="dateCreated datePublished" datetime="2025-06-23T20:56:37+08:00">2025-06-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-06-24 10:50:59" itemprop="dateModified" datetime="2025-06-24T10:50:59+08:00">2025-06-24</time>
+              </span>
 
           
 
@@ -207,45 +213,43 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基础矩阵运算</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Eigen/Core&gt;</span>       <span class="comment">// 必须包含</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Eigen/Dense&gt;</span>      <span class="comment">// 稠密矩阵扩展（推荐）</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 线性系统求解</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Eigen/LU&gt;</span>         <span class="comment">// LU分解</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Eigen/Cholesky&gt;</span>   <span class="comment">// Cholesky分解</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Eigen/QR&gt;</span>         <span class="comment">// QR分解</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 稀疏矩阵</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Eigen/Sparse&gt;</span>     <span class="comment">// 稀疏矩阵核心</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Eigen/SparseLU&gt;</span>   <span class="comment">// 稀疏LU求解器</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 几何变换</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Eigen/Geometry&gt;</span>   <span class="comment">// 旋转、平移等</span></span></span><br></pre></td></tr></table></figure>
 <h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><h2 id="静态初始化"><a href="#静态初始化" class="headerlink" title="静态初始化"></a><strong>静态初始化</strong></h2><p>​        创建已知维度的矩阵，比如Matrix3d、Vector4f。Matrix2Xd （行数固定） MatrixX2d （列数固定） </p>
 <ol>
-<li>逗号初始化</li>
-</ol>
+<li><p>逗号初始化</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Eigen::Matrix3d mat;</span><br><span class="line">mat &lt;&lt; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,</span><br><span class="line">       <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>,</span><br><span class="line">       <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>;</span><br><span class="line"></span><br><span class="line">Eigen::Vector4d vec;</span><br><span class="line">vec &lt;&lt; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>构造函数初始化</li>
+</li>
+<li><p>构造函数初始化</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Eigen::Matrix2d <span class="title">mat</span><span class="params">(<span class="number">1.0</span>, <span class="number">2.0</span>,  <span class="comment">// 按行填充</span></span></span></span><br><span class="line"><span class="params"><span class="function">                 <span class="number">3.0</span>, <span class="number">4.0</span>)</span></span>;</span><br><span class="line"><span class="function">Eigen::Vector3d <span class="title">vec</span><span class="params">(<span class="number">1.0</span>, <span class="number">2.0</span>, <span class="number">3.0</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Eigen::Matrix2d <span class="title">mat</span><span class="params">(<span class="number">1.0</span>, <span class="number">2.0</span>,  <span class="comment">// 按行填充</span></span></span></span><br><span class="line"><span class="params"><span class="function">                    <span class="number">3.0</span>, <span class="number">4.0</span>)</span></span>;</span><br><span class="line"><span class="function">Eigen::Vector3d <span class="title">vec</span><span class="params">(<span class="number">1.0</span>, <span class="number">2.0</span>, <span class="number">3.0</span>)</span></span>;</span><br></pre></td></tr></table></figure>
 <h2 id="动态初始化"><a href="#动态初始化" class="headerlink" title="动态初始化"></a>动态初始化</h2><p>​        创建可调节维度的矩阵，比如MatrixXd、VectorXf。</p>
 <ol>
 <li><p>指定大小后赋值</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Eigen::MatrixXd <span class="title">mat</span><span class="params">(<span class="number">2</span>, <span class="number">3</span>)</span></span>;  <span class="comment">// 2行3列，未初始化</span></span><br><span class="line">mat &lt;&lt; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,</span><br><span class="line">       <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">mat</span>(<span class="number">0</span>, <span class="number">0</span>) = <span class="number">1.0</span>;  <span class="comment">// 第1行第1列</span></span><br><span class="line"><span class="built_in">mat</span>(<span class="number">1</span>, <span class="number">1</span>) = <span class="number">4.0</span>;  <span class="comment">// 第2行第2列</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用函数进行特殊赋值</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Eigen::MatrixXd mat = Eigen::MatrixXd::<span class="built_in">Zero</span>(<span class="number">3</span>, <span class="number">3</span>); <span class="comment">// 全0矩阵</span></span><br><span class="line">Eigen::VectorXf vec = Eigen::VectorXf::<span class="built_in">Ones</span>(<span class="number">5</span>);    <span class="comment">// 全1向量</span></span><br><span class="line">Eigen::Matrix3f I = Eigen::Matrix3f::<span class="built_in">Identity</span>();   <span class="comment">// 单位矩阵</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Eigen::MatrixXd mat = Eigen::MatrixXd::<span class="built_in">Zero</span>(<span class="number">3</span>, <span class="number">3</span>); <span class="comment">// 全0矩阵</span></span><br><span class="line">Eigen::VectorXf vec = Eigen::VectorXf::<span class="built_in">Ones</span>(<span class="number">5</span>);    <span class="comment">// 全1向量</span></span><br><span class="line">Eigen::Matrix3f I = Eigen::Matrix3f::<span class="built_in">Identity</span>();   <span class="comment">// 单位矩阵</span></span><br></pre></td></tr></table></figure>
 <h2 id="特殊矩阵赋值"><a href="#特殊矩阵赋值" class="headerlink" title="特殊矩阵赋值"></a><strong>特殊矩阵赋值</strong></h2><ol>
-<li>常量矩阵</li>
-</ol>
+<li><p>常量矩阵</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Eigen::Matrix4f mat = Eigen::Matrix4f::<span class="built_in">Constant</span>(<span class="number">3.14</span>); <span class="comment">// 所有元素为3.14</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>随机矩阵</li>
-</ol>
+</li>
+<li><p>随机矩阵</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Eigen::MatrixXd rand_mat = Eigen::MatrixXd::<span class="built_in">Random</span>(<span class="number">3</span>, <span class="number">3</span>); <span class="comment">// 范围[-1, 1]</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>线性序列矩阵</li>
-</ol>
+</li>
+<li><p>线性序列矩阵</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Eigen::VectorXd lin_vec = Eigen::VectorXd::<span class="built_in">LinSpaced</span>(<span class="number">5</span>, <span class="number">0</span>, <span class="number">10</span>); <span class="comment">// 0到10的5等分</span></span><br></pre></td></tr></table></figure>
-<h2 id="映射赋值"><a href="#映射赋值" class="headerlink" title="映射赋值"></a>映射赋值</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> data[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br><span class="line"><span class="function">Eigen::Map&lt;Eigen::VectorXd&gt; <span class="title">vec</span><span class="params">(data, <span class="number">4</span>)</span></span>; <span class="comment">// 直接映射数组</span></span><br><span class="line"><span class="function">Eigen::Map&lt;Eigen::MatrixXd&gt; <span class="title">mat</span><span class="params">(data, <span class="number">2</span>, <span class="number">2</span>)</span></span>; <span class="comment">// 2x2矩阵</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="映射赋值"><a href="#映射赋值" class="headerlink" title="映射赋值"></a>映射赋值</h2>   <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> data[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br><span class="line"><span class="function">Eigen::Map&lt;Eigen::VectorXd&gt; <span class="title">vec</span><span class="params">(data, <span class="number">4</span>)</span></span>; <span class="comment">// 直接映射数组</span></span><br><span class="line"><span class="function">Eigen::Map&lt;Eigen::MatrixXd&gt; <span class="title">mat</span><span class="params">(data, <span class="number">2</span>, <span class="number">2</span>)</span></span>; <span class="comment">// 2x2矩阵</span></span><br></pre></td></tr></table></figure>
 <h1 id="块操作"><a href="#块操作" class="headerlink" title="块操作"></a>块操作</h1><h2 id="提取块"><a href="#提取块" class="headerlink" title="提取块"></a>提取块</h2><ol>
-<li>取固定大小的块 matrix.block<Rows, Cols>(startRow, startCol)</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Eigen::Matrix3d mat;</span><br><span class="line">mat &lt;&lt; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,</span><br><span class="line">       <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>,</span><br><span class="line">       <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 提取左上角 2x2 子块</span></span><br><span class="line">Eigen::Block&lt;Eigen::Matrix3d, <span class="number">2</span>, <span class="number">2</span>&gt; block = mat.<span class="built_in">block</span>&lt;<span class="number">2</span>, <span class="number">2</span>&gt;(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;2x2 Block:\n&quot;</span> &lt;&lt; block &lt;&lt; endl;  <span class="comment">// 输出 [1, 2; 4, 5]</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>提取动态大小的块  matrix.block(startRow, startCol, rows, cols)</li>
-</ol>
+<li><p>取固定大小的块 matrix.block<Rows, Cols>(startRow, startCol)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Eigen::Matrix3d mat;</span><br><span class="line">mat &lt;&lt; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,</span><br><span class="line">    <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>,</span><br><span class="line">    <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 提取左上角 2x2 子块</span></span><br><span class="line">Eigen::Block&lt;Eigen::Matrix3d, <span class="number">2</span>, <span class="number">2</span>&gt; block = mat.<span class="built_in">block</span>&lt;<span class="number">2</span>, <span class="number">2</span>&gt;(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;2x2 Block:\n&quot;</span> &lt;&lt; block &lt;&lt; endl;  <span class="comment">// 输出 [1, 2; 4, 5]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提取动态大小的块  matrix.block(startRow, startCol, rows, cols)</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提取右下角 2x2 子块（动态大小）</span></span><br><span class="line">Eigen::MatrixXd dynamic_block = mat.<span class="built_in">block</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Dynamic Block:\n&quot;</span> &lt;&lt; dynamic_block &lt;&lt; endl;  <span class="comment">// 输出 [5, 6; 8, 9]</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>特殊位置的块</li>
+</li>
+<li><p>特殊位置的块</p>
+</li>
 </ol>
 <div class="table-container">
 <table>
@@ -295,41 +299,36 @@
 </tbody>
 </table>
 </div>
-<h1 id="特殊函数"><a href="#特殊函数" class="headerlink" title="特殊函数"></a>特殊函数</h1><h2 id="转置"><a href="#转置" class="headerlink" title="转置"></a>转置</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MatrixXcf a = MatrixXcf::<span class="built_in">Random</span>(<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Here is the matrix a^T\n&quot;</span> &lt;&lt; a.<span class="built_in">transpose</span>() &lt;&lt; endl;</span><br><span class="line"><span class="comment">//    a = a.transpose(); // 禁止</span></span><br></pre></td></tr></table></figure>
-<h2 id="共轭"><a href="#共轭" class="headerlink" title="共轭"></a>共轭</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MatrixXcf a = MatrixXcf::<span class="built_in">Random</span>(<span class="number">2</span>,<span class="number">2</span>)；</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Here is the conjugate of a\n&quot;</span> &lt;&lt; a.<span class="built_in">conjugate</span>() &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
-<h2 id="共轭转置"><a href="#共轭转置" class="headerlink" title="共轭转置"></a>共轭转置</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MatrixXcf a = MatrixXcf::<span class="built_in">Random</span>(<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Here is the matrix a^*\n&quot;</span> &lt;&lt; a.<span class="built_in">adjoint</span>() &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<h1 id="特殊函数"><a href="#特殊函数" class="headerlink" title="特殊函数"></a>特殊函数</h1><h2 id="转置"><a href="#转置" class="headerlink" title="转置"></a>转置</h2>   <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MatrixXcf a = MatrixXcf::<span class="built_in">Random</span>(<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Here is the matrix a^T\n&quot;</span> &lt;&lt; a.<span class="built_in">transpose</span>() &lt;&lt; endl;</span><br><span class="line"><span class="comment">//    a = a.transpose(); // 禁止</span></span><br></pre></td></tr></table></figure>
+<h2 id="共轭"><a href="#共轭" class="headerlink" title="共轭"></a>共轭</h2>   <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MatrixXcf a = MatrixXcf::<span class="built_in">Random</span>(<span class="number">2</span>,<span class="number">2</span>)；</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Here is the conjugate of a\n&quot;</span> &lt;&lt; a.<span class="built_in">conjugate</span>() &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<h2 id="共轭转置"><a href="#共轭转置" class="headerlink" title="共轭转置"></a>共轭转置</h2>   <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MatrixXcf a = MatrixXcf::<span class="built_in">Random</span>(<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Here is the matrix a^*\n&quot;</span> &lt;&lt; a.<span class="built_in">adjoint</span>() &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
 <h2 id="点积"><a href="#点积" class="headerlink" title="点积"></a>点积</h2><p><strong>两向量维度必须相同</strong>，输出标量</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> dot_product = a.<span class="built_in">dot</span>(b);</span><br></pre></td></tr></table></figure>
+   <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> dot_product = a.<span class="built_in">dot</span>(b);</span><br></pre></td></tr></table></figure>
 <h2 id="差积"><a href="#差积" class="headerlink" title="差积"></a>差积</h2><p>叉积结果是一个新向量 c，其方向垂直于原始 a 和 b 所在的平面。<strong>仅三维向量</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> angle = <span class="built_in">acos</span>(a.<span class="built_in">dot</span>(b) / (a.<span class="built_in">norm</span>() * b.<span class="built_in">norm</span>())); <span class="comment">// 弧度制</span></span><br></pre></td></tr></table></figure>
+   <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> angle = <span class="built_in">acos</span>(a.<span class="built_in">dot</span>(b) / (a.<span class="built_in">norm</span>() * b.<span class="built_in">norm</span>())); <span class="comment">// 弧度制</span></span><br></pre></td></tr></table></figure>
 <h2 id="归约操作"><a href="#归约操作" class="headerlink" title="归约操作"></a><strong>归约操作</strong></h2><ol>
-<li>所有元素求和</li>
-</ol>
+<li><p>所有元素求和</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> sum = mat.<span class="built_in">sum</span>()；</span><br></pre></td></tr></table></figure>
-<ol>
-<li>所有元素求积</li>
-</ol>
+</li>
+<li><p>所有元素求积</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> prod = mat.<span class="built_in">prod</span>()；</span><br></pre></td></tr></table></figure>
-<ol>
-<li>所有元素的平均值</li>
-</ol>
+</li>
+<li><p>所有元素的平均值</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> mean = mat.<span class="built_in">mean</span>()；</span><br></pre></td></tr></table></figure>
-<ol>
-<li>最小元素值</li>
-</ol>
+</li>
+<li><p>最小元素值</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> row, col;</span><br><span class="line"><span class="type">double</span> min_val = mat.<span class="built_in">minCoeff</span>(&amp;row, &amp;col);  <span class="comment">// 获取最小值及其位置</span></span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Min: &quot;</span> &lt;&lt; min_val &lt;&lt; <span class="string">&quot; at (&quot;</span> &lt;&lt; row &lt;&lt; <span class="string">&quot;,&quot;</span> &lt;&lt; col &lt;&lt; <span class="string">&quot;)&quot;</span> &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>最大元素值</li>
-</ol>
+</li>
+<li><p>最大元素值</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> row, col;</span><br><span class="line"><span class="type">double</span> max_val = mat.<span class="built_in">maxCoeff</span>(&amp;row, &amp;col);  <span class="comment">// 获取最大值及其位置</span></span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Max: &quot;</span> &lt;&lt; max_val &lt;&lt; <span class="string">&quot; at (&quot;</span> &lt;&lt; row &lt;&lt; <span class="string">&quot;,&quot;</span> &lt;&lt; col &lt;&lt; <span class="string">&quot;)&quot;</span> &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>矩阵的迹（主对角线元素之和）</li>
-</ol>
+</li>
+<li><p>矩阵的迹（主对角线元素之和）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> trace = mat.<span class="built_in">trace</span>()；</span><br></pre></td></tr></table></figure>
-<ol>
-<li>范数</li>
+</li>
+<li><p>范数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Eigen::MatrixXd <span class="title">m</span><span class="params">(<span class="number">2</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line">m &lt;&lt; <span class="number">1</span>, <span class="number">2</span>,</span><br><span class="line">  <span class="number">3</span>, <span class="number">4</span>;</span><br><span class="line"><span class="comment">// Frobenius 范数（类似于向量的 L2 范数）</span></span><br><span class="line"><span class="type">double</span> frob_norm = m.<span class="built_in">norm</span>();      <span class="comment">// sqrt(1² + 2² + 3² + 4²) = sqrt(30) ≈ 5.47723</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// L1 范数（最大绝对列和）</span></span><br><span class="line"><span class="type">double</span> l1_norm = m.<span class="built_in">colwise</span>().<span class="built_in">lpNorm</span>&lt;<span class="number">1</span>&gt;().<span class="built_in">maxCoeff</span>();  <span class="comment">// max(1+3, 2+4) = 6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 无穷范数（最大绝对行和）</span></span><br><span class="line"><span class="type">double</span> inf_norm = m.<span class="built_in">rowwise</span>().<span class="built_in">lpNorm</span>&lt;<span class="number">1</span>&gt;().<span class="built_in">maxCoeff</span>(); <span class="comment">// max(1+2, 3+4) = 7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 谱范数（最大奇异值，即 L2 范数）</span></span><br><span class="line"><span class="type">double</span> l2_norm = m.<span class="built_in">lpNorm</span>&lt;<span class="number">2</span>&gt;();</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Eigen::MatrixXd <span class="title">m</span><span class="params">(<span class="number">2</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line">m &lt;&lt; <span class="number">1</span>, <span class="number">2</span>,</span><br><span class="line">     <span class="number">3</span>, <span class="number">4</span>;</span><br><span class="line"><span class="comment">// Frobenius 范数（类似于向量的 L2 范数）</span></span><br><span class="line"><span class="type">double</span> frob_norm = m.<span class="built_in">norm</span>();      <span class="comment">// sqrt(1² + 2² + 3² + 4²) = sqrt(30) ≈ 5.47723</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// L1 范数（最大绝对列和）</span></span><br><span class="line"><span class="type">double</span> l1_norm = m.<span class="built_in">colwise</span>().<span class="built_in">lpNorm</span>&lt;<span class="number">1</span>&gt;().<span class="built_in">maxCoeff</span>();  <span class="comment">// max(1+3, 2+4) = 6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 无穷范数（最大绝对行和）</span></span><br><span class="line"><span class="type">double</span> inf_norm = m.<span class="built_in">rowwise</span>().<span class="built_in">lpNorm</span>&lt;<span class="number">1</span>&gt;().<span class="built_in">maxCoeff</span>(); <span class="comment">// max(1+2, 3+4) = 7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 谱范数（最大奇异值，即 L2 范数）</span></span><br><span class="line"><span class="type">double</span> l2_norm = m.<span class="built_in">lpNorm</span>&lt;<span class="number">2</span>&gt;();</span><br></pre></td></tr></table></figure>
 
     </div>
 
